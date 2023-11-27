@@ -1,3 +1,5 @@
+This repo is forked by [delight.im](https://github.com/delight-im/HTML-Sheets-of-Paper). I created the style.css (created by style.scss) and did some modifications to build my CV.
+
 # Sheets of Paper
 
 Word processor in your browser using HTML and CSS (e.g. for invoices, legal notices, etc.)
@@ -6,21 +8,10 @@ Word processor in your browser using HTML and CSS (e.g. for invoices, legal noti
  * Like the foundation of Microsoft Word or LibreOffice — but in your web browser
  * Emulates sheets of paper in web documents (but without skeuomorphic paper textures)
 
-[**Live demo**](https://delight-im.github.io/HTML-Sheets-of-Paper/): Try modifying or printing the page
-
 ## Usage
 
  1. Copy all files to any desired directory
  2. Modify the HTML source in [`index.html`](index.html) to your liking
-
-## Browser compatibility
-
- * Chrome 4+
- * Firefox 19+
- * Safari 5+
- * Opera 10.1+
- * Internet Explorer 9+
- * Edge 12+
 
 ## Paper sizes
 

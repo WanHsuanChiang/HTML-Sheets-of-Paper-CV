@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+}
+
+.block-left {
+    width: 70%;
+}
+
+.block-right {
+    width: 30%;
+}
+
+ul.horizontal-list {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul.horizontal-list li {
+    display: inline;
+    margin-right: 1em;
+}
+
+ul.horizontal-list i {
+    margin-right: 5px;
+}

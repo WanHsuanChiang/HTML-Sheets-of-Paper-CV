@@ -1,0 +1,10 @@
+# ignore these type of files
+*.py
+*.csv
+icons/
+_pycache_/
+
+# ignore my personal CVs
+*.html
+!sample.html
+

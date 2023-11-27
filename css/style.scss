@@ -1,0 +1,331 @@
+$left-length: 70%;
+$skill-color: teal;
+$domain-color: steelblue;
+$soft-color:royalblue;
+$darkgrey-color: rgba(black, 0.7);
+$grey-color: rgba(black, 0.5);
+$lightgrey-color: rgba(black, 0.3);
+$margin-top: 12px;
+
+@mixin tag-style($opacity:0.1, $important: false) {
+    font-size: smaller;
+    padding: 2px 6px;
+    border-radius: 10px;
+    white-space: pre;
+
+    @if $important {
+        &[category="skill"] {
+            background-color: rgba($skill-color, $opacity) !important;
+            box-shadow: 1px 1px 2px darken($skill-color, 10%);
+        }
+        &[category="domain"] {
+            background-color: rgba($domain-color, $opacity) !important;
+            box-shadow: 1px 1px 2px darken($domain-color, 10%);
+        }
+        &[category="soft"] {
+            background-color: rgba($soft-color, $opacity) !important;
+            box-shadow: 1px 1px 2px darken($soft-color, 10%);
+        }
+    } @else {
+        &[category="skill"] {
+            background-color: rgba($skill-color, $opacity);
+        }
+        &[category="domain"] {
+            background-color: rgba($domain-color, $opacity);
+        }
+        &[category="soft"] {
+            background-color: rgba($soft-color, $opacity);
+        }
+    }    
+
+    @if $opacity > 0.5 {
+        color: white;
+    }  
+
+}
+
+/*
+[info=skill] {
+
+    [keyword=sql], [keyword=visualization] {
+        @include tag-style($opacity: 1.0, $important: true);
+    }
+}
+*/
+
+
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.block-left {
+    width: $left-length;
+    padding-right: 0.5em;
+}
+
+.block-right {
+    width: 100% - $left-length;
+}
+
+.left {
+    flex-grow: 5;
+}
+
+.right {
+    flex-grow: 2;
+}
+
+.block-long-left {
+    width: 85%;
+}
+.block-long-right {
+    width: 15%;
+}
+
+.block-half {
+    width: 48%;
+    span {
+        margin-bottom: 1em;
+    }
+    & > div {
+        margin-bottom: 0.5em;
+    }
+}
+
+
+.block-full {
+    width: 100%;
+}
+
+.content {
+    font-size: small;
+    color: $darkgrey-color;
+    margin-top: auto;
+}
+
+[info=summary] {
+    font-size: smaller;
+}
+
+
+//#header, #experience, #skills, #certificates {
+//    border-bottom: 1px solid $lightgrey-color;
+//    padding-bottom: 1.2em;
+//}
+
+[info=responsibility] {
+    &:before{
+        content: "Responsible for: ";
+    }    
+    margin-top: .5em;
+    color: $darkgrey-color;
+    //font-size: smaller;    
+}
+
+ul.horizontal-list {
+    margin-left: 0;
+    overflow: auto;
+    padding-left: 0;
+    li {
+        display: inline;
+        margin-right: 1em;
+        white-space: nowrap;
+    }
+
+}
+
+i.fa {
+    margin-right: 0.5em;
+}
+
+ul {
+    padding-left: 1.2em;
+    margin-top: 0.1em;
+}
+
+
+[info=location] {
+    &:before {
+        content: url("data:image/svg+xml,%0A%3Csvg width='12px' height='12px' viewBox='0 0 28 28' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='ic_fluent_location_28_filled' fill='%23212121' fill-rule='nonzero'%3E%3Cpath d='M14,2.25 C19.3847763,2.25 23.75,6.61522369 23.75,12 C23.75,16.1196455 20.855433,20.6092677 15.1401958,25.5178507 C14.4843932,26.0810927 13.5155806,26.0810925 12.8571694,25.5155993 L12.4794181,25.1881258 C7.01712282,20.4088515 4.25,16.0278108 4.25,12 C4.25,6.61522369 8.61522369,2.25 14,2.25 Z M14,8.25 C11.9289322,8.25 10.25,9.92893219 10.25,12 C10.25,14.0710678 11.9289322,15.75 14,15.75 C16.0710678,15.75 17.75,14.0710678 17.75,12 C17.75,9.92893219 16.0710678,8.25 14,8.25 Z' id='🎨-Color'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        padding-right: 0.2em;
+    }
+    font-size: smaller;
+}
+
+[info=time] {
+    font-size: smaller;
+    //margin-top: $margin-top + 3px;
+    color: $grey-color;
+    //margin-bottom: 0.2em;
+}
+
+[info=company] {
+    font-size: smaller;
+}
+
+[info=company-description] {
+    font-size: small;
+    color: $grey-color;
+    &:before {
+        //content: "▸ ";
+        content: " (";
+    }
+    &:after {
+        content: ")";
+    }
+}
+
+[info=meta] {
+    font-size: small;
+}
+
+[info=skill]{
+    margin-top: 0.5em;
+    font-size: small;
+    line-height: 1.5em;
+}
+
+
+
+
+
+.block-right .tag, #skills .tag, .right .tag {
+    @include tag-style;
+    line-height: 0;
+}
+
+h1 {
+    margin-bottom: auto;
+}
+
+h2 {
+    &:not(.top-heading) {
+        margin-top: 1.5em;
+    }
+    margin-bottom: 0.2em;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: $darkgrey-color;
+    &:before {
+        content: '';
+        flex-grow: 1;
+        height: 1px;
+        background-color: $grey-color; /* or any color you prefer */
+        margin-right: 0.5em; /* adjust spacing as needed */
+    }
+    &:after {
+        content: '';
+        flex-grow: 70;
+        height: 1px;
+        background-color: $grey-color; /* or any color you prefer */
+        margin-left: 0.5em; /* adjust spacing as needed */
+    }
+}
+
+
+h3 {
+    margin-top: auto;
+    margin-bottom: 0;
+    font-size: medium;
+}
+
+#education, #certificates, #publications, #trainings {
+    h3 {
+        display: inline;
+    }
+}
+
+#education {
+
+    [info=time] {
+        font-size: small;
+        margin-top: 2px;
+    }
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+
+[info=degree]{
+    margin-top: $margin-top;
+    [info=time] {
+        white-space: pre;
+    }
+}
+
+
+#certificates [info=time] {
+    font-size: small;
+    float: right;
+}
+
+#skills {
+    .note {
+        font-size: smaller;
+        color: $grey-color;
+    }
+
+    [info=skill] {
+        margin-top: 1px;
+    }
+}
+
+#interests .container{
+    & > div {
+        width:30%;
+        margin-top: 1em;
+    }
+
+    img {
+        width: 60px;
+    }
+    
+}
+
+#interests img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.item {
+    margin-top: 0.5em;
+}
+
+.fa-external-link-alt {
+    margin-left: 0.5em;
+}
+
+#projects {
+    .block-left > span:first-child{
+        font-size: x-small;
+        color: $grey-color;
+    }
+    //[info=time] {
+    //    margin-top: 1.5em;
+    //}
+}
+
+//.border-bottom {
+    //border-bottom: 1px solid $lightgrey-color;
+    //padding-bottom: .5em;
+//}
